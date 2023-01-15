@@ -24,7 +24,7 @@
         <form id="form" class="form">
             <div class="form-control">
                 <label for="username">Nome Completo:</label>
-                <input id="username" type="text" placeholder="Nome completo" name="Username" oninput="trim()">
+                <input id="username" type="text" placeholder="Nome completo" name="username">
                 <i><img class="img-success" src="/assets/success.png" alt="" width="20"></i>
                 <i><img class="img-error" src="/assets/error.png" alt="" width="20"></i>
                 <small></small>
@@ -32,7 +32,7 @@
             
             <div class="form-control">
                 <label for="email">Email:</label>
-                <input id="email" type="text" placeholder="Email@email.com" name="Email" oninput="trim()">
+                <input id="email" type="text" placeholder="Email@email.com" name="email">
                 <i><img class="img-success" src="/assets/success.png" alt="" width="20"></i>
                 <i><img class="img-error" src="/assets/error.png" alt="" width="20"></i>
                 <small></small>
@@ -40,7 +40,7 @@
 
             <div class="form-control">
                 <label for="phone">Telefone:</label>
-                <input type="text" id="phone" placeholder="(00) 00000-0000" name="Phone" oninput="trim()">
+                <input type="text" id="phone" placeholder="(00) 00000-0000" name="phone">
                 <i><img class="img-success" src="/assets/success.png" alt="" width="20"></i>
                 <i><img class="img-error" src="/assets/error.png" alt="" width="20"></i>
                 <small></small>
@@ -48,7 +48,7 @@
 
             <div class="form-control">
                 <label for="doc">CPF:</label>
-                <input type="text" id="doc" placeholder="000.000.000-00" name="CPF" oninput="trim()">
+                <input type="text" id="doc" placeholder="000.000.000-00" name="cpf">
                 <i><img class="img-success" src="/assets/success.png" alt="" width="20"></i>
                 <i><img class="img-error" src="/assets/error.png" alt="" width="20"></i>
                 <small></small>
@@ -56,14 +56,14 @@
 
             <div class="form-control">
                 <label for="password">Senha:</label>
-                <input type="password" id="password" placeholder="****************" name="Password" oninput="trim()">
+                <input type="password" id="password" placeholder="****************" name="password">
                 <i><img class="img-success" src="/assets/success.png" alt="" width="20"></i>
                 <i><img class="img-error" src="/assets/error.png" alt="" width="20"></i>
                 <small></small>
             </div>
 
-            <button type="submit" id="asubmit">Cadastrar</button>
-            <p class="result" id="result"></p>
+            <button type="submit" id="submit" onclick="return result()">Cadastrar</button>
+            <p class="form-control result" id="results"></p>
         </form>
         
     </section>

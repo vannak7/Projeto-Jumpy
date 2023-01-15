@@ -7,7 +7,6 @@ const doc = document.getElementById('doc')
 const password = document.getElementById('password')
 
 
-
 form.addEventListener('submit', (event) => {
     event.preventDefault()
 
@@ -23,12 +22,10 @@ function checkInputs() {
 
 
     if(usernameValue === '') {
-        // mostrar erro e adicionar a classe erro
         setErrorFor(username, '* Campo Obrigatório *')
     } else if(usernameValue.length < 3) {
-        setErrorFor(phone, 'Telefone inválido')
+        setErrorFor(username, 'Nome incompleto')
     } else {
-        // adicionar a classe de sucesso
         setSuccessFor(username)
     }
 
@@ -37,21 +34,22 @@ function checkInputs() {
         setErrorFor(email, '* Campo Obrigatório *')
     } else if (!isEmail(emailValue)) {
         setErrorFor(email, 'Email inválido')
+        campos['email'] = false
     } else {
         // adicionar a classe de sucesso
         setSuccessFor(email)
+        campos['email'] = true
     }
 
     if(phoneValue === '') {
         // mostrar erro e adicionar a classe erro
         setErrorFor(phone, '* Campo Obrigatório *')
+        // campos['phone'] = false
     } else if(phoneValue.length < 11) {
         setErrorFor(phone, 'Telefone inválido')
-        cadastrar = true
+        // campos['phone'] = false
     } else {
-        // adicionar a classe de su cesso
         setSuccessFor(phone)
-        
     }
 
     if(docValue === '') {
@@ -62,18 +60,19 @@ function checkInputs() {
     } else {
         // adicionar a classe de sucesso
         setSuccessFor(doc)
-        
     }
 
     if(passwordValue === '') {
         // mostrar erro e adicionar a classe erro
         setErrorFor(password, '* Campo Obrigatório *')
+        // campos['password'] = false
     } else if(passwordValue.length < 6) {
         setErrorFor(doc, '* Campo Obrigatório *')
+        campos['password'] = false
     } else {
         // adicionar a classe de sucesso
         setSuccessFor(password)
-        
+        // campos['password'] = true
     }
 }
 
@@ -96,4 +95,14 @@ function setSuccessFor(input) {
 
 function isEmail(email) {
     return /^(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/.test(email)
+}
+
+
+function result() {
+    if(!checkInputs()) {
+        results.style.display = 'block'
+        results.innerHTML = 'Campos obrigatórios não registrados'
+        setTimeout(function(){results.style.display = 'none';}, 6000);
+        return false
+    }
 }
