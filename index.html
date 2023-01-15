@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Jumpy</title>
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <!-- Estilos -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div id="logo-dnc">
+        <img src="/assets/dnc.png" alt="Logo DNC">
+    </div>
+
+    <section>
+        <div id="header">
+            <img src="/assets/jumpy.png" alt="Logo Jumpy">
+            <h1>Bem vindo ao Jumpy!</h1>
+        </div>
+
+        <form id="form" class="form">
+            <div class="form-control">
+                <label for="username">Nome Completo:</label>
+                <input id="username" type="text" placeholder="Nome completo" name="Username" oninput="trim()">
+                <i><img class="img-success" src="/assets/success.png" alt="" width="20"></i>
+                <i><img class="img-error" src="/assets/error.png" alt="" width="20"></i>
+                <small></small>
+            </div>
+            
+            <div class="form-control">
+                <label for="email">Email:</label>
+                <input id="email" type="text" placeholder="Email@email.com" name="Email" oninput="trim()">
+                <i><img class="img-success" src="/assets/success.png" alt="" width="20"></i>
+                <i><img class="img-error" src="/assets/error.png" alt="" width="20"></i>
+                <small></small>
+            </div>
+
+            <div class="form-control">
+                <label for="phone">Telefone:</label>
+                <input type="text" id="phone" placeholder="(00) 00000-0000" name="Phone" oninput="trim()">
+                <i><img class="img-success" src="/assets/success.png" alt="" width="20"></i>
+                <i><img class="img-error" src="/assets/error.png" alt="" width="20"></i>
+                <small></small>
+            </div>
+
+            <div class="form-control">
+                <label for="doc">CPF:</label>
+                <input type="text" id="doc" placeholder="000.000.000-00" name="CPF" oninput="trim()">
+                <i><img class="img-success" src="/assets/success.png" alt="" width="20"></i>
+                <i><img class="img-error" src="/assets/error.png" alt="" width="20"></i>
+                <small></small>
+            </div>
+
+            <div class="form-control">
+                <label for="password">Senha:</label>
+                <input type="password" id="password" placeholder="****************" name="Password" oninput="trim()">
+                <i><img class="img-success" src="/assets/success.png" alt="" width="20"></i>
+                <i><img class="img-error" src="/assets/error.png" alt="" width="20"></i>
+                <small></small>
+            </div>
+
+            <button type="submit" id="asubmit">Cadastrar</button>
+            <p class="result" id="result"></p>
+        </form>
+        
+    </section>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>
