@@ -6,6 +6,9 @@ const phone = document.getElementById('phone')
 const doc = document.getElementById('doc')
 const password = document.getElementById('password')
 
+const button = document.getElementById('submit')
+const p = document.getElementById('results')
+
 
 form.addEventListener('submit', (event) => {
     event.preventDefault()
@@ -30,52 +33,54 @@ function checkInputs() {
     }
 
     if(emailValue === '') {
-        // mostrar erro e adicionar  a classe erro
         setErrorFor(email, '* Campo Obrigatório *')
     } else if (!isEmail(emailValue)) {
         setErrorFor(email, 'Email inválido')
-        campos['email'] = false
     } else {
-        // adicionar a classe de sucesso
         setSuccessFor(email)
-        campos['email'] = true
     }
 
     if(phoneValue === '') {
-        // mostrar erro e adicionar a classe erro
         setErrorFor(phone, '* Campo Obrigatório *')
-        // campos['phone'] = false
     } else if(phoneValue.length < 11) {
         setErrorFor(phone, 'Telefone inválido')
-        // campos['phone'] = false
     } else {
         setSuccessFor(phone)
     }
 
     if(docValue === '') {
-        // mostrar erro e adicionar a classe erro
         setErrorFor(doc, '* Campo Obrigatório *')
     } else if(docValue.length < 11) {
         setErrorFor(doc, '* Documento inválido *')
     } else {
-        // adicionar a classe de sucesso
         setSuccessFor(doc)
     }
 
     if(passwordValue === '') {
-        // mostrar erro e adicionar a classe erro
         setErrorFor(password, '* Campo Obrigatório *')
-        // campos['password'] = false
-    } else if(passwordValue.length < 6) {
+    } else if(passwordValue.length < 1) {
         setErrorFor(doc, '* Campo Obrigatório *')
-        campos['password'] = false
     } else {
-        // adicionar a classe de sucesso
         setSuccessFor(password)
-        // campos['password'] = true
     }
-}
 
+    if (username.value != '' && email.value != '' && phone.value != '' && doc.value != '' && password.value != '') {
+        document.getElementById('results').innerHTML = 'Sucesso!'
+        document.getElementById('results').style.color = '#00D6ED'
+        document.getElementById('results').style.display = 'block'
+        setTimeout(() => {
+            document.getElementById('results').style.display = 'none'
+            form.reset()
+        }, 5000)
+    } else {
+        document.getElementById('results').innerHTML = 'Campos obrigatórios não registrados'
+        document.getElementById('results').style.color = 'red';
+        setTimeout(() => {
+        document.getElementById('results').style.display = 'none'
+        }, 3000)
+    }
+
+}
 
 
 function setErrorFor(input, message) {
@@ -98,11 +103,4 @@ function isEmail(email) {
 }
 
 
-function result() {
-    if(!checkInputs()) {
-        results.style.display = 'block'
-        results.innerHTML = 'Campos obrigatórios não registrados'
-        setTimeout(function(){results.style.display = 'none';}, 6000);
-        return false
-    }
-}
+
