@@ -89,9 +89,9 @@ input:placeholder-shown {
     visibility: visible;
 }
 
-.form-control.success i .img-success {
+/* .form-control.success i .img-success {
     visibility: visible;
-}
+} */
 
 .form-control.error small {
     visibility: visible;
